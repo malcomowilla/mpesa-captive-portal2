@@ -68,9 +68,9 @@ access_token
     Timestamp:timestamp,    
     TransactionType: "CustomerPayBillOnline",    
     Amount: amount,    
-    PartyA: phone_number,    
+    PartyA: "254#{phone_number.gsub(/\A0/, '')}",    
     PartyB:shortcode ,    
-    PhoneNumber:phone_number,     
+    PhoneNumber:"254#{phone_number.gsub(/\A0/, '')}",     
     CallBackURL: callback_url,    
     AccountReference:"Account",    
     TransactionDesc:"Making payment to captive-portal"
