@@ -66,6 +66,8 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
+    bootsnap (1.17.0)
+      msgpack (~> 1.2)
     builder (3.2.4)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
@@ -107,6 +109,7 @@ GEM
     mime-types-data (3.2023.1003)
     mini_mime (1.1.5)
     minitest (5.20.0)
+    msgpack (1.7.2)
     net-imap (0.4.5)
       date
       net-protocol
@@ -183,6 +186,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  bootsnap
   debug
   dotenv-rails
   figaro
