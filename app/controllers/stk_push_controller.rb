@@ -26,7 +26,7 @@ def initiate_stk_push
    
 
    if token
-    response = initiate_payment(api_url, token, shortcode, lipa_na_mpesa_online_passkey, callback_url, formatted_phone_number, amount)
+    response = initiate_payment(api_url, token, shortcode, lipa_na_mpesa_online_passkey, callback_url, phone_number, amount)
     render json: response
   else
     render json: { error: 'Failed to fetch access token' }, status: :unprocessable_entity
@@ -53,7 +53,7 @@ access_token
 
 
 
-  def initiate_payment(api_url, token, shortcode, lipa_na_mpesa_online_passkey, callback_url, formatted_phone_number, amount)
+  def initiate_payment(api_url, token, shortcode, lipa_na_mpesa_online_passkey, callback_url, phone_number, amount)
     timestamp = Time.now.strftime('%Y%m%d%H%M%S')
   api_url2 = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
     password = Base64.strict_encode64("#{shortcode}#{lipa_na_mpesa_online_passkey}#{timestamp}")
