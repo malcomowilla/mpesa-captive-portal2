@@ -10,7 +10,7 @@ def initiate_stk_push
 
     lipa_na_mpesa_online_passkey =  ENV['PASS_KEY'];
     
-    phone_number = phone_number = params[:phone_number] 
+     phone_number = params[:phone_number] 
     formatted_phone_number = "254#{phone_number.gsub(/\A0/, '')}"
 
     permitted_params = params.permit(:amount, :phone_number) 
