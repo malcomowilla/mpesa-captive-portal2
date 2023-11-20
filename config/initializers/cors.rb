@@ -7,10 +7,10 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins "http://localhost:5173 
+    origins "https://captive-portal.onrender.com 
     "
 
-    resource "*",
+    resource '/stk_push',
       headers: :any,
       methods: [:get, :post, :put, :patch, :delete, :options, :head]
   end
