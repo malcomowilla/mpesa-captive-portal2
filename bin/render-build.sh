@@ -4,8 +4,7 @@
 set -o errexit
 
 bundle install
-bundle exec rake assets:install  
-
+bundle exec rake webpacker:install
 bundle exec rake assets:clean
 bundle exec rake db:migrate
 
