@@ -14,7 +14,7 @@ def initiate_stk_push
     formatted_phone_number = "254#{phone_number.gsub(/\A0/, '')}"
 
     permitted_params = params.permit(:amount, :phone_number) 
-    amount = permitted_params[:amount] 
+    amount = params[:amount] 
 
     Rails.logger.info("Received parameters: #{params}")
 
