@@ -1,21 +1,20 @@
 databases:
-  - name: mysite
-    databaseName: mysite
-    user: mysite
+  - name: mpesa-captive-portal
+    databaseName: mpesa_captive_portal
+    user: mpesa_captive_portal_user
 
 services:
   - type: web
-    name: mysite
+    name: Captive-portal2
     runtime: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: mysite
+          name: mpesa-captive-portal
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
 
 
-        
