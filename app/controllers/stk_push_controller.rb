@@ -7,7 +7,7 @@ def initiate_stk_push
     consumer_secret = ENV['CONSUMER_SECRET']
     shortcode = ENV['SHORT_CODE']
     callback_url= "https://captive-portal5.onrender.com/stk_push"   
-
+    # "https://captive-portal5.onrender.com/stk_push" 
     lipa_na_mpesa_online_passkey =  ENV['PASS_KEY'];
     
      phone_number = params[:phone_number] 
