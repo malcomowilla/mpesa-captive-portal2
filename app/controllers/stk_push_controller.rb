@@ -55,7 +55,7 @@ access_token
 
   def initiate_payment(api_url, token, shortcode, lipa_na_mpesa_online_passkey, callback_url, formatted_phone_number, amount)
     timestamp = Time.now.strftime('%Y%m%d%H%M%S')
-
+  api_url2 = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
     password = Base64.strict_encode64("#{shortcode}#{lipa_na_mpesa_online_passkey}#{timestamp}")
 
 
@@ -73,13 +73,13 @@ access_token
     PhoneNumber:formatted_phone_number,     
     CallBackURL: callback_url,    
     AccountReference:"Mpesa Test",    
-    TransactionDesc:"Testing  stk push"
+    TransactionDesc:"Making payment to captive-portal"
  }
 
  Rails.logger.info("Payment Request Payload: #{payload}")
 
  response = RestClient.post(
-    "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest",
+    api_url2,
     payload.to_json,
     { content_type: :json, Authorization: "Bearer #{token}" }
   )
