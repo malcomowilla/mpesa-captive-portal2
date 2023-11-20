@@ -68,11 +68,11 @@ access_token
     Timestamp:timestamp,    
     TransactionType: "CustomerPayBillOnline",    
     Amount: amount,    
-    PartyA: formatted_phone_number,    
+    PartyA: phone_number,    
     PartyB:shortcode ,    
-    PhoneNumber:formatted_phone_number,     
+    PhoneNumber:phone_number,     
     CallBackURL: callback_url,    
-    AccountReference:"Mpesa Test",    
+    AccountReference:"Account",    
     TransactionDesc:"Making payment to captive-portal"
  }
 
