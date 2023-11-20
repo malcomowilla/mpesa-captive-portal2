@@ -47,3 +47,4 @@ module CaptivePortal3
     end
   end
 end
+
