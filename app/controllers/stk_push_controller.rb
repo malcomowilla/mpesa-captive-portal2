@@ -6,7 +6,7 @@ def initiate_stk_push
     consumer_key = ENV['CONSUMER_KEY']
     consumer_secret = ENV['CONSUMER_SECRET']
     shortcode = ENV['SHORT_CODE']
-    callback_url= "https://github.com/malcomowilla/my-portfolio"   
+    callback_url= "https://captive-portal5.onrender.com"   
     # "https://captive-portal5.onrender.com/stk_push" 
     lipa_na_mpesa_online_passkey =  ENV['PASS_KEY'];
     
@@ -84,10 +84,15 @@ access_token
     { content_type: :json, Authorization: "Bearer #{token}" }
   )
 
-  JSON.parse(response.body)
-rescue RestClient::ExceptionWithResponse => e
-  Rails.logger.error("Error initiating payment: #{e.response}")
-  { error: 'Failed to initiate payment' }
+  # JSON.parse(response.body)
+
+  if response.code == 200
+    render  json: JSON.parse(response.body), status: :ok, message: 'Transaction succesful'
+
+  else
+    render json: { error: 'Failed to initiate transaction', response: response.body }, status: :bad_request
+
+  end
 
   end
 
