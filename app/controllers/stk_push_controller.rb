@@ -87,10 +87,10 @@ access_token
   # JSON.parse(response.body)
 
   if response
-    render  json: JSON.parse(response.body), status: :ok, message: 'Transaction succesful'
+     JSON.parse(response.body)
 
   else
-    render json: { error: 'Failed to initiate transaction', response: response.body }, status: :bad_request
+     { error: 'Failed to initiate transaction', response: response.body }
 
   end
 
