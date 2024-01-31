@@ -86,7 +86,7 @@ access_token
 
   # JSON.parse(response.body)
 
-  if response.code == 200
+  if response
     render  json: JSON.parse(response.body), status: :ok, message: 'Transaction succesful'
 
   else
