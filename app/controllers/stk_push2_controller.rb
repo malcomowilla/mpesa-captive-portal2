@@ -1,6 +1,6 @@
-class StkPushController < ApplicationController
+class StkPush2Controller < ApplicationController
 
-def initiate_stk_push 
+def initiate_stk_push2 
     api_url = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
 
     consumer_key = ENV['CONSUMER_KEY']
@@ -16,7 +16,7 @@ def initiate_stk_push
     permitted_params = params.permit(:amount, :phone_number) 
     amount = params[:amount] 
 
-    # Rails.logger.info("Received parameters: #{params}")
+    Rails.logger.info("Received parameters: #{params}")
 
 
 
@@ -43,7 +43,7 @@ private
      Authorization: "Basic #{Base64.strict_encode64("#{consumer_key}:#{consumer_secret}")}" })
 
     body = response.body
-    # Rails.logger.info("OAuth Response Body: #{body}")
+    Rails.logger.info("OAuth Response Body: #{body}")
     access_token = JSON.parse(response.body)['access_token']
 
 access_token
@@ -60,8 +60,8 @@ access_token
     password = Base64.strict_encode64("#{shortcode}#{lipa_na_mpesa_online_passkey}#{timestamp}")
 
 
-    # Rails.logger.info("Payment Request Timestamp: #{timestamp}")
-    # Rails.logger.info("Payment Request Password: #{password}")
+    Rails.logger.info("Payment Request Timestamp: #{timestamp}")
+    Rails.logger.info("Payment Request Password: #{password}")
 
   payload = {    
     BusinessShortCode:shortcode,    
@@ -77,7 +77,7 @@ access_token
     TransactionDesc:"Making payment to captive-portal"
  }
 
-#  Rails.logger.info("Payment Request Payload: #{payload}")
+ Rails.logger.info("Payment Request Payload: #{payload}")
 
  response = RestClient.post(
     api_url2,
@@ -96,5 +96,4 @@ access_token
   end
 
   end
-
 end
