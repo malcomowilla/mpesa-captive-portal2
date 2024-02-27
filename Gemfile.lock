@@ -71,6 +71,7 @@ GEM
     builder (3.2.4)
     concurrent-ruby (1.2.3)
     crass (1.0.6)
+    dalli (3.2.8)
     date (3.3.4)
     debug (1.9.1)
       irb (~> 1.10)
@@ -187,6 +188,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  dalli
   debug
   dotenv-rails
   figaro
